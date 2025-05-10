@@ -423,7 +423,7 @@ def update_user(id, chat, reputation=None, ps_reputation=None, soob_num=None):
     finally:
         connection.close()
     
-def data_base(chat_id, warn_user_id, nfkaz,soob_num=0,ps_reputation_upt=0) -> list:
+def data_base(chat_id, warn_user_id, nfkaz,soob_num=0,ps_reputation_upt=0) -> list: # data_base(message.chat.id,message.from_user.id,0,0,0) (вызов без изменения базы ) выход: [resperens,ps_reputation_new,int(soob_num),time.time()] (репутация,2 репутация_ps,каличество сообщений,время входа) 
     try:
         resperens = 5
         # Создаем подключение к базе данных
