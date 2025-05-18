@@ -17,7 +17,7 @@ import os.path
 import json
 import re
 import sys
-TOKEN = "7567661827:AAHiwdDlLCdAJ4MXVremhlYXTZNrA_Txzp8" 
+TOKEN = " token " 
 
 def umsettings():
     bambam=False
@@ -448,7 +448,7 @@ def data_base(chat_id, warn_user_id, nfkaz,soob_num=0,ps_reputation_upt=0) -> li
         cursor.execute('CREATE INDEX IF NOT EXISTS warn_user_id_index ON Users (warn_user_id)')
         
         # Проверяем, существует ли пользователь с данным warn_user_id
-        cursor.execute('SELECT * FROM Users WHERE warn_user_id = ?', (warn_user_id,))
+        cursor.execute('SELECT * FROM Users WHERE warn_user_id = ? AND chat_id = ?', (warn_user_id,chat_id))
         result = cursor.fetchone()
         ps_reputation_new=0+ps_reputation_upt
         
